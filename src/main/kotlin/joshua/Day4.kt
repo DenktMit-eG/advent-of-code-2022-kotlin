@@ -1,8 +1,6 @@
-package days
+package joshua
 
-import IDay
-
-class Day4 : IDay {
+class Day4 : Day {
 
     fun doRangesFullyOverlap(ranges: Pair<IntRange, IntRange>): Boolean {
         return ranges.first.first <= ranges.second.first && ranges.first.last >= ranges.second.last
@@ -46,15 +44,13 @@ class Day4 : IDay {
         return totalAmount
     }
 
-    override fun getResult(): String {
-        return getAmountOfFullOverlaps(getInput()).toString()
+    override fun getResult(input: String): String {
+        return getAmountOfFullOverlaps(input).toString()
     }
 
-    override fun getSecondResult(): String {
-        return getAmountOfOverlaps(getInput()).toString()
+    override fun getSecondResult(input: String): String {
+        return getAmountOfOverlaps(input).toString()
     }
 
-    override fun getDay(): Int {
-        return 4
-    }
+    override val dayNumber: Int = 4
 }

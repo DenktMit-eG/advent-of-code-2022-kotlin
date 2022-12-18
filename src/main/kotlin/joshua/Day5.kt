@@ -1,8 +1,6 @@
-package days
+package joshua
 
-import IDay
-
-class Day5 : IDay {
+class Day5 : Day {
 
     fun doInstructions(currentStacks: MutableMap<Int, MutableList<Char>>, instructions: List<List<Int>>): MutableMap<Int, MutableList<Char>> {
 
@@ -54,17 +52,15 @@ class Day5 : IDay {
         return topCrates
     }
 
-    override fun getResult(): String {
-        return getResultOfRearrangement(getInput())
+    override fun getResult(input: String): String {
+        return getResultOfRearrangement(input)
     }
 
-    override fun getSecondResult(): String {
-        return getResultOfRearrangementForNewCrane(getInput())
+    override fun getSecondResult(input: String): String {
+        return getResultOfRearrangementForNewCrane(input)
     }
 
-    override fun getDay(): Int {
-        return 5
-    }
+    override val dayNumber: Int = 5
 
     fun mapInstructions(input: String): List<List<Int>> {
         var result = mutableListOf<List<Int>>()

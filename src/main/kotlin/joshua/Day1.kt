@@ -1,8 +1,8 @@
-package days
+package joshua
 
-import IDay
+class Day1 : Day {
 
-class Day1 : IDay {
+
     fun getAllElves(input: String): List<Long> {
         var calories: MutableList<Long> = mutableListOf()
 
@@ -27,12 +27,14 @@ class Day1 : IDay {
         return getAllElves(input).sortedDescending()[0]
     }
 
-    override fun getResult(): String {
-        return getRichestElf(getInput()).toString()
+    override val dayNumber: Int = 1
+
+    override fun getResult(input: String): String {
+        return getRichestElf(input).toString()
     }
 
-    override fun getSecondResult(): String {
-        return getTopThreeElves(getInput()).toString()
+    override fun getSecondResult(input: String): String {
+        return getTopThreeElves(input).toString()
     }
 
     fun getTopThreeElves(input: String): Long {
@@ -41,7 +43,4 @@ class Day1 : IDay {
         return elves[0] + elves[1] + elves[2]
     }
 
-    override fun getDay(): Int {
-        return 1
-    }
 }

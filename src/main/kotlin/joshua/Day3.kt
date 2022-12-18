@@ -1,8 +1,6 @@
-package days
+package joshua
 
-import IDay
-
-class Day3 : IDay {
+class Day3 : Day {
 
 	fun getCompartments(rucksack: String): Array<String> {
 		return arrayOf(rucksack.substring(0, rucksack.length / 2), rucksack.substring(rucksack.length / 2))
@@ -14,7 +12,8 @@ class Day3 : IDay {
 
 	fun getCommonItemType(rucksack: String): Char {
 		val compartments = getCompartments(rucksack)
-		return compartments[0].toCharArray().intersect(compartments[1].toCharArray().asIterable().toSet()).first()
+		val intersect = compartments[0].toCharArray().intersect(compartments[1].toCharArray().asIterable().toSet())
+		return intersect.first()
 	}
 
 	fun getTotalPriority(rucksacks: String): Int {
@@ -27,8 +26,8 @@ class Day3 : IDay {
 		return totalPriority
 	}
 
-	override fun getResult(): String {
-		return getTotalPriority(getInput()).toString()
+	override fun getResult(input: String): String {
+		return getTotalPriority(input).toString()
 	}
 
 	fun getCommonItemTypeForGroup(rucksacks: List<String>): Char {
@@ -52,11 +51,9 @@ class Day3 : IDay {
 		return totalPriority
 	}
 
-	override fun getSecondResult(): String {
-		return getTotalItemPriorityForGroups(getInput()).toString()
+	override fun getSecondResult(input: String): String {
+		return getTotalItemPriorityForGroups(input).toString()
 	}
 
-	override fun getDay(): Int {
-		return 3
-	}
+	override val dayNumber: Int = 3
 }

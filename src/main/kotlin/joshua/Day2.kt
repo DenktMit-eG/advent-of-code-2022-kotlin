@@ -1,8 +1,6 @@
-package days
+package joshua
 
-import IDay
-
-class Day2 : IDay {
+class Day2 : Day {
     // A: Rock; B: Paper; C: Scissors (opponent)
     // X: Rock; Y: Paper; Z: Scissors (you)
     private val possibleScoresForShape = mapOf(
@@ -28,12 +26,12 @@ class Day2 : IDay {
         "Z" to mapOf("A" to "Y", "B" to "Z", "C" to "X")
     )
 
-    override fun getResult(): String {
-        return getTotalScore(getInput()).toString()
+    override fun getResult(input: String): String {
+        return getTotalScore(input).toString()
     }
 
-    override fun getSecondResult(): String {
-        return getSecondTotalScore(getInput()).toString()
+    override fun getSecondResult(input: String): String {
+        return getSecondTotalScore(input).toString()
     }
 
     fun getTotalScore(input: String): Long {
@@ -76,7 +74,5 @@ class Day2 : IDay {
         return totalScore
     }
 
-    override fun getDay(): Int {
-        return 2
-    }
+    override val dayNumber: Int = 2
 }
