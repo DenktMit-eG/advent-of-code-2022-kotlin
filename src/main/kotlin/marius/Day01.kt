@@ -1,26 +1,22 @@
 package marius
 
 import java.nio.file.Path
-import kotlin.io.path.useLines
 
 class Day01: Day {
 
     override val dayNumber: Int = 1
 
-    override fun getResult(inputPath: Path): String {
-        return inputPath.useLines { lines: Sequence<String> ->
-            getCaloriesPerElf(lines).max()
-        }.toString()
-    }
+    override fun getResult(inputPath: Path): String = inputPath.processData(::firstTask)
 
-    override fun getSecondResult(inputPath: Path): String {
-        return inputPath.useLines { lines: Sequence<String> ->
-            getCaloriesPerElf(lines)
-                .sortedDescending()
-                .take(3)
-                .sum()
-        }.toString()
-    }
+    override fun getSecondResult(inputPath: Path): String = inputPath.processData(::secondTask)
+
+    private fun firstTask(lines: Sequence<String>) = getCaloriesPerElf(lines)
+        .max()
+
+    private fun secondTask(lines: Sequence<String>) = getCaloriesPerElf(lines)
+        .sortedDescending()
+        .take(3)
+        .sum()
 
     private fun getCaloriesPerElf(lines: Sequence<String>): Sequence<Int> {
         val lineIterator = lines.iterator()

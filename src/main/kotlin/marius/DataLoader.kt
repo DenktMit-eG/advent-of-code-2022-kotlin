@@ -1,6 +1,7 @@
 package marius
 
 import java.nio.file.Path
+import kotlin.io.path.useLines
 
 class DataLoader(
     private val basePath: Path
@@ -18,3 +19,11 @@ class DataLoader(
     }
 
 }
+
+fun Path.processData(block: LinesHandler): String {
+    return useLines { lines: Sequence<String> ->
+        block(lines)
+    }.toString()
+}
+
+typealias LinesHandler = (Sequence<String>) -> Any
