@@ -36,11 +36,10 @@ class Day5Test {
     }
 
     @Test
-    @Disabled
     fun testDoInstructionsForNewCrane() {
         assertEquals(
-            mapOf(1 to listOf('M'), 2 to listOf('C'), 3 to listOf('D', 'N', 'C', 'P')),
-            day.doInstructionsForNewCrane(
+            mapOf(1 to listOf('M'), 2 to listOf('C'), 3 to listOf('D', 'N', 'Z', 'P')),
+            dayFive.doInstructionsForNewCrane(
                 mutableMapOf(1 to mutableListOf('N', 'Z'), 2 to mutableListOf('D', 'C', 'M'), 3 to mutableListOf('P')),
                 listOf(listOf(1, 2, 1), listOf(3, 1, 3), listOf(2, 2, 1), listOf(1, 1, 2))
             )
