@@ -1,9 +1,10 @@
 package days
 
-import Day
+import joshua.Day
 import java.lang.Exception
 
 class Day6 : Day {
+    override val dayNumber: Int = 6
 
     fun getIndexOfFinishedSequence(sequence: String): Int {
         for(index in 3 until sequence.length) {
@@ -15,15 +16,11 @@ class Day6 : Day {
         throw Exception("No Sequence found")
     }
 
-    override fun getResult(): String {
-        return getIndexOfFinishedSequence(getInput()).toString()
+    override fun getResult(input: String): String {
+        return getIndexOfFinishedSequence(input).toString()
     }
 
-    override fun getSecondResult(): String {
+    override fun getSecondResult(input: String): String {
         TODO("Not yet implemented")
-    }
-
-    override fun getDay(): Int {
-        return 6
     }
 }
